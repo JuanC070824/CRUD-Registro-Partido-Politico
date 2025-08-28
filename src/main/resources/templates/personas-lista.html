@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de partidarios</title>
+</head>
+<body>
+    <h1>Listado de Partidarios</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th>Edad</th>
+                <th>Teléfono</th>
+                <th>DNI</th>
+                <th>Correo</th>
+                <th>Fecha de registro</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="persona : ${personas}">
+                <td th:text="${persona.id}">1</td>
+                <td th:text="${persona.nombre}">Nombre</td>
+                <td th:text="${persona.apat}">Apellido Paterno</td>
+                <td th:text="${persona.amat}">Apellido Materno</td>
+                <td th:text="${persona.edad}">Edad</td>
+                <td th:text="${persona.telefono}">Teléfono</td>
+                <td th:text="${persona.dni}">DNI</td>
+                <td th:text="${persona.correo}">Correo</td>
+                <!--<td th:text="${#dates.format(persona.fecha_registro, 'dd/MM/yyyy HH:mm')}">Fecha de registro</td>-->
+                <td th:text="${#temporals.format(persona.fecha_registro, 'dd/MM/yyyy HH:mm')}"></td>
+
+            </tr>
+        </tbody>
+    </table>
+    <a href="/personas/nuevo">Nuevo partidario</a>
+</body>
+</html>
